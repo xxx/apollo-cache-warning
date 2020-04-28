@@ -7,8 +7,14 @@ import App from "./App";
 
 import "./index.css";
 
+const cache = new InMemoryCache();
+
+if (window) {
+  window.apolloCache = cache
+}
+
 const client = new ApolloClient({
-  cache: new InMemoryCache(),
+  cache,
   link
 });
 
